@@ -25,7 +25,7 @@ app.post('/', upload.none(), function (req, res) {
         from: `${req.body.name} <${req.body.email}>`,
         to: mail,
         subject: req.body.subject,
-        text: `Mensaje de ${req.body.name} <${req.body.email}>:\n${req.body.message}`
+        text: `Mensaje de ${req.body.name}\n<${req.body.email}>:\n${req.body.message}`
     };
 
     mg.messages().send(data, function (error, body) {
