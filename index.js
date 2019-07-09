@@ -3,9 +3,9 @@ if(process.env.NODE_ENV !== 'production') require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-// const multer = require('multer');
+const multer = require('multer');
 const app = express();
-// const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'uploads/' });
 
 const api_key = process.env.API_KEY;
 const DOMAIN = process.env.MY_DOMAIN;
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.post('/', function (req, res) {
+app.post('/', upload.none(), function (req, res) {
     console.log(req.body),
 
     data = {
