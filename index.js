@@ -7,11 +7,11 @@ const multer = require('multer');
 const app = express();
 const upload = multer({ dest: 'uploads/' });
 
-const api_key = process.env.API_KEY;
-const DOMAIN = process.env.MY_DOMAIN;
-const mail = process.env.MY_MAIL;
+const API_KEY = process.env.API_KEY;
+const DOMAIN = process.env.DOMAIN;
+const mail = process.env.MAIL;
 const mailgun = require('mailgun-js');
-const mg = mailgun({apiKey: api_key, domain: DOMAIN });
+const mg = mailgun({apiKey: API_KEY, domain: DOMAIN });
 let data = {};
 
 app.use(bodyParser.json());
